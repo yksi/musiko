@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: musiko_development
+  pool: 5
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: musiko_test
+  pool: 5
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: musiko_production
+  pool: 5
