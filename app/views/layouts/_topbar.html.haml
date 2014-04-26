@@ -4,7 +4,9 @@
       %a.navbar-brand{href: root_path} Musiko
     %ul.nav.navbar-nav.navbar-right
       - if user_signed_in?
+        %li= link_to "New playlist", new_playlist_path
         %li= link_to "My profile", "#"
         %li= link_to "Logout", destroy_user_session_path
+        = render 'layouts/add_song_to_playlist'
       - else
         %li= link_to "Log in", new_user_session_path

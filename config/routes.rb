@@ -1,8 +1,12 @@
 Musiko::Application.routes.draw do
   get "pages/index"
   root to: "pages#index"
-  resources :users
+
   devise_for :users
+
+  resources :users
+  resources :playlists
+  resources :songs
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

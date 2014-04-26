@@ -1,0 +1,5 @@
+%ul.list-group
+  - @playlists.each do |playlist|
+    %li.list-group-item= playlist.name
+= link_to "New playlist", new_playlist_path
+

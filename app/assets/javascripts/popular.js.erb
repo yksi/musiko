@@ -244,6 +244,15 @@ function createList(artist, title, ganre, num, url) {
   p.appendChild(songTitle);
   div.appendChild(p);
 
+  var form = document.createElement("a");
+  form.setAttribute("class", "btn btn-default btn-xs add-to-playlist pull-right");
+  form.setAttribute("id", url);
+  form.setAttribute("data-toggle", "modal");
+  form.setAttribute("data-target", "#add_to_playlist");
+  form.setAttribute("name", artist + "," + title);
+  // form.href = "?song_url=" + url;
+  form.innerHTML = 'Add to playlist';
+
   $(".playBtn").mouseover(function (e) {
     var index = $(".playBtn").index(this);
     $(".playBtn:eq(" + index + ")").html("");
@@ -268,6 +277,7 @@ function createList(artist, title, ganre, num, url) {
 
 	  a.appendChild(i);
 	  a.appendChild(em);
+    a.appendChild(form);
     a.appendChild(div);
 
   return a;
@@ -435,6 +445,12 @@ function buttons(data) {
     $(".req-artist").val(arr[0]);
     $(".req-title").val(arr[1]);
     $(".req-song_name").text(arr[0]+" - "+arr[1]);
+  });
+
+  $(".add_to_playlist_submit").click(function(e) {
+    e.preventDefault();
+    // $("#add_to_playlist").modal('hide');
+    // alert("added");
   });
 
 

@@ -1,0 +1,21 @@
+= form_for @song, remote: true do |f|
+  #add_to_playlist.modal{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+          .inline-group
+            %h4 Add song to playlist
+            %h4.song_name
+        .modal-body
+          .list-group
+            %h5 Choose playlist
+            = f.select :playlist_id, @playlists.collect {|p| [ p.name, p.id ] }
+            = f.hidden_field :url, class: 'req-url'
+            .well
+              %label Edit song name
+              %br
+              = f.text_field :artist, class: 'req-artist form-control'
+              = f.text_field :title, class: 'req-title form-control'
+        .modal-footer
+          = f.submit "Add", class: "btn btn-success add_to_playlist_submit"
